@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NavMate</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href='https://fonts.googleapis.com/css?family=Corinthia' rel='stylesheet'>
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+</head>
+<body>
+  <div id="preloader">
+  <lottie-player 
+    src="Paper plane.json"
+    background="transparent"
+    speed="0.5"
+    style="width: 180px; height: 180px;"
+    loop autoplay>
+  </lottie-player>
+</div>
+
+<div id="main-content" style="display: none;">
+  <header>
+    <div class="logo">
+        <img src="images/plane.png" alt="logo">
+        <span>NavMate</span></div>
+    <nav>
+  <ul class="nav-items">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="planner.html">Smart Planner</a></li>
+    <li><a href="destination.html">Destinations</a></li>
+    <li><a href="login.html">Login</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
+</header>
+<section class="hero">
+  
+  <div class="hero-text">
+    <h1 class="txt">Explore. Dream. Discover.</h1>
+    <h1 class="fade fade1">Plan your next trip,</h1>
+    <h2 class="fade fade2"> Intelligently. </h2>
+    <a href="planner.html" class="btn fade fade3"><span>Get Started</span></a>
+  </div>
+
+  <div class="hero-image">
+    <img src="images/banner.png" alt="banner image">
+  </div>
+
+</section>
+
+<div class="txt1">
+  <h1> ─── Explore the World ─── </h1><br> 
+  <p>Hand picked places worth the journey</p>
+</div>
+<div class="container">
+<div class="banner">
+  <div class="slideshow-container">
+    <div class="slide active" style="background-image: url('images/maldives.jpg')"></div>
+    <div class="slide" style="background-image: url('images/jaipur1.jpg')"></div>
+    <div class="slide" style="background-image: url('images/rann.webp')"></div>
+    <div class="slide" style="background-image: url('images/bhutan2.jpg')"></div>
+    <div class="slide" style="background-image: url('images/valley.jpg')"></div>
+    <div class="slide" style="background-image: url('images/island.jpg')"></div>
+  </div>
+  <div class="image-caption"></div>
+  <button class="prev">❮</button>
+  <button class="next">❯</button>
+  <div class="dots"></div>
+</div>
+</div>
+<section class="why-navmate">
+  <h2>Why NavMate?</h2>
+
+  <div class="bento-box">
+    <div class="bento-item">
+      <h3>Smart Destination Suggestions</h3>
+      <p>AI chooses what fits your season, budget & interests.</p>
+      <img class="img1" src="images/1.jpg" alt="img1">
+    </div>
+
+    <div class="bento-item">
+      <h3>Personalized Itineraries</h3>
+      <p>Already picked a place? Get a custom day-by-day plan.</p>
+      <img class="img2" src="images/2.png" alt="img2"> 
+    </div>
+
+    <div class="bento-item">
+      <h3>Budget-Friendly Planning</h3>
+      <p>More fun, less spending — optimized by AI.</p>
+      <img class="img3" src="images/3.png" alt="img3">
+    </div>
+
+    <div class="bento-item">
+      <h3>Quick & Effortless</h3>
+      <p>No more research — plan your trip in seconds.</p>
+      <img class="img4" src="images/4.png" alt="img4">
+    </div>
+  </div>
+
+</section>
+</div>
+  <footer>
+    <p>© 2025 NavMate. All rights reserved.</p>
+  </footer>
+
+  <script>
+  window.addEventListener("load", () => {
+    setTimeout(() => {
+      document.getElementById("preloader").style.display = "none";
+      document.getElementById("main-content").style.display = "block";
+    }, 2000); 
+  });
+  
+const slideshowContainer = document.querySelector(".slideshow-container");
+const slides = document.querySelectorAll(".slide");
+const totalSlides = slides.length;
+
+const captions = [
+  "Maldives",
+  "Amer Fort, Jaipur, India",
+  "Rann of Kutch, Gujarat, India",
+  "Tiger's Nest Monastery, Bhutan",
+  "Valley of Flowers, Uttarakhand, India",
+  "Andaman and Nicobar Islands, India"
+];
+
+const captionEl = document.querySelector(".image-caption");
+const dotsContainer = document.querySelector(".dots");
+
+const firstClone = slides[0].cloneNode(true);
+const lastClone = slides[slides.length - 1].cloneNode(true);
+
+firstClone.classList.add("clone");
+lastClone.classList.add("clone");
+
+slideshowContainer.appendChild(firstClone);
+slideshowContainer.insertBefore(lastClone, slides[0]);
+
+let allSlides = document.querySelectorAll(".slide");
+let index = 1; 
+let autoSlide;
+
+
+const slideWidth = 100; 
+slideshowContainer.style.transform = `translateX(-${index * slideWidth}%)`;
+
+
+for (let i = 0; i < totalSlides; i++) {
+  const dot = document.createElement("div");
+  dot.classList.add("dot");
+  if (i === 0) dot.classList.add("active");
+  dot.addEventListener("click", () => {
+    index = i + 1; 
+    moveSlide();
+    restartAutoSlide();
+  });
+  dotsContainer.appendChild(dot);
+}
+
+function updateDots() {
+  document.querySelectorAll(".dot").forEach((dot, i) => {
+    dot.classList.toggle("active", i === index - 1);
+  });
+}
+
+
+function moveSlide() {
+  slideshowContainer.style.transition = "transform 1s ease-in-out";
+  slideshowContainer.style.transform = `translateX(-${index * slideWidth}%)`;
+
+  captionEl.style.opacity = 0;
+  setTimeout(() => {
+    captionEl.textContent = captions[(index - 1 + totalSlides) % totalSlides];
+    captionEl.style.opacity = 1;
+  }, 400);
+  updateDots();
+}
+
+slideshowContainer.addEventListener("transitionend", () => {
+  if (allSlides[index].classList.contains("clone")) {
+    slideshowContainer.style.transition = "none";
+
+    if (index === 0) {
+      index = totalSlides;
+    } else if (index === allSlides.length - 1) {
+      index = 1;
+    }
+
+    slideshowContainer.style.transform = `translateX(-${index * slideWidth}%)`;
+  }
+});
+
+
+document.querySelector(".next").addEventListener("click", () => {
+  if (index >= allSlides.length - 1) return;
+  index++;
+  moveSlide();
+  restartAutoSlide();
+});
+
+document.querySelector(".prev").addEventListener("click", () => {
+  if (index <= 0) return;
+  index--;
+  moveSlide();
+  restartAutoSlide();
+});
+
+function restartAutoSlide() {
+  clearInterval(autoSlide);
+  autoSlide = setInterval(() => {
+    index++;
+    moveSlide();
+  }, 5000);
+}
+
+restartAutoSlide();
+moveSlide();
+
+
+</script>
+</body>
+</html>

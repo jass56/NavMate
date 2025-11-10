@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NavMate</title>
+  <link rel="stylesheet" href="style4.css" />
+  <link href='https://fonts.googleapis.com/css?family=Corinthia' rel='stylesheet'>
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+</head>
+<body>
+ <div class="page-container">
+  <div id="preloader">
+  <lottie-player 
+    src="Paper plane.json"
+    background="transparent"
+    speed="0.5"
+    style="width: 180px; height: 180px;"
+    loop autoplay>
+  </lottie-player>
+</div>
+
+  <header>
+    <div class="logo">
+        <img src="images/plane.png" alt="logo">
+        <span>NavMate</span></div>
+    <nav>
+  <ul class="nav-items">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="planner.html">Smart Planner</a></li>
+    <li><a href="destination.html">Destinations</a></li>
+    <li><a href="login.html" id="open-passport">Login</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
+</header>
+<div id="main-content" style="display: none;">
+<section class="login-section">
+  <div class="login-card">
+    <h2>Hey Traveller! 🌎</h2>
+    <p>Join this voyage to unlock exclusive deals, AI-powered travel ideas, and more.</p>
+    
+    <form class="login-form">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" placeholder="Enter your name" required>
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" placeholder="Enter your email" required>
+
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="Create a password" required>
+
+      <button type="submit" class="login-btn">Join the Voyage</button>
+    </form>
+
+    <p class="note">Already on board? <a href="#">Login here</a></p>
+  </div>
+</section>
+
+</div>
+<footer>
+    <p>© 2025 NavMate. All rights reserved.</p>
+  </footer> 
+</div>
+
+
+
+<script>
+window.addEventListener("load", () => {
+    setTimeout(() => {
+      document.getElementById("preloader").style.display = "none";
+      document.getElementById("main-content").style.display = "block";
+    }, 2000); 
+  });
+  
+</script>
+</body>
+</html>

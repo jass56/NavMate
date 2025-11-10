@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NavMate</title>
+  <link rel="stylesheet" href="style2.css" />
+  <link href='https://fonts.googleapis.com/css?family=Corinthia' rel='stylesheet'>
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+</head>
+<body>
+  <div class="page-container">
+  <div id="preloader">
+  <lottie-player 
+    src="Paper plane.json"
+    background="transparent"
+    speed="0.5"
+    style="width: 180px; height: 180px;"
+    loop autoplay>
+  </lottie-player>
+</div>
+
+  <header>
+    <div class="logo">
+        <img src="images/plane.png" alt="logo">
+        <span>NavMate</span></div>
+    <nav>
+  <ul class="nav-items">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="planner.html">Smart Planner</a></li>
+    <li><a href="destination.html">Destinations</a></li>
+    <li><a href="login.html">Login</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
+</header>
+
+<div id="main-content" style="display: none;">
+<section class="planner-section">
+  <h1 style="font-size:2rem; padding-bottom: 10px;">─── Choose Your Travel Mode ───</h1>
+  <p style="font-style: italic; font-size: 1rem ;">Let AI plan your next journey — your way.</p>
+
+  <div class="planner-modes">
+    <div class="mode-card" id="mode1">
+      <h3 style="padding-bottom: 10px;">Can’t Decide?</h3>
+      <p style="font-size: 14px;">Let AI recommend destinations based on your interests.</p>
+      <img class="m1" src="images/m1.png" alt="mode1">
+      <button onclick="showForm('recommend')">Recommend for Me</button>
+    </div>
+
+    <div class="mode-card" id="mode2">
+      <h3 style="padding-bottom: 10px;">Already Picked a Place?</h3>
+      <p style="font-size: 14px;">Get a smart day-by-day itinerary instantly.</p>
+      <img class="m2" src="images/m2.png" alt="mode2">
+      <button onclick="showForm('plan')">Plan My Trip</button>
+    </div>
+
+    <div class="planner-form" id="recommend-form">
+    <h3>- AI Destination Recommendation -</h3>
+    <label>Preferred Season:</label>
+    <select>
+      <option>Summer</option><option>Winter</option>
+      <option>Monsoon</option><option>Any</option>
+    </select>
+
+    <label>Budget (₹):</label>
+    <input type="number" placeholder="e.g. 30000">
+
+    <label>Trip Type:</label>
+    <select>
+      <option>Adventure</option><option>Relaxation</option>
+      <option>Nature</option><option>Historical</option>
+    </select>
+
+    <button class="submit-btn">Get Suggestions</button>
+    
+  </div>
+
+  <div class="planner-form" id="plan-form">
+    <h3>- AI Itinerary Planner -</h3>
+    <label>Destination:</label>
+    <input type="text" placeholder="Enter city or country">
+
+    <label>Number of Days:</label>
+    <input type="number" placeholder="e.g. 5">
+
+    <label>Budget (₹):</label>
+    <input type="number" placeholder="e.g. 40000">
+
+    <button class="submit-btn">Generate Itinerary</button>
+  </div>
+  <div id="ai-results" class="results-box">
+  <h3>- AI Results -</h3>
+  <div id="results-content">
+    <p>Your AI results will appear here...</p>
+  </div>
+</div>
+
+</section>
+</div>
+
+<footer>
+    <p>© 2025 NavMate. All rights reserved.</p>
+  </footer>
+</div>
+
+ <script>
+  window.addEventListener("load", () => {
+    setTimeout(() => {
+      document.getElementById("preloader").style.display = "none";
+      document.getElementById("main-content").style.display = "block";
+    }, 2000); 
+  });
+
+  
+function showForm(form) {
+  
+  document.getElementById("recommend-form").style.display = "none";
+  document.getElementById("plan-form").style.display = "none";
+
+  
+  if (form === "recommend") {
+    document.getElementById("recommend-form").style.display = "block";
+  } else if (form === "plan") {
+    document.getElementById("plan-form").style.display = "block";
+  }
+
+
+  window.scrollTo({
+    top: document.body.scrollHeight,
+    behavior: "smooth"
+  });
+}
+
+
+function showForm(form) {
+  document.getElementById("recommend-form").style.display = "none";
+  document.getElementById("plan-form").style.display = "none";
+
+  if (form === "recommend") {
+    document.getElementById("recommend-form").style.display = "block";
+  } else if (form === "plan") {
+    document.getElementById("plan-form").style.display = "block";
+  }
+
+  window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+}
+//mini db
+const itineraries = {
+  manali: [
+    "Arrive and explore Mall Road & Hadimba Temple.",
+    "Adventure at Solang Valley.",
+    "Visit Old Manali cafés and local markets."
+  ],
+  jaipur: [
+    "Explore Amer Fort and Jal Mahal.",
+    "Visit City Palace and Jantar Mantar.",
+    "Shop in Johari Bazaar and enjoy Rajasthani cuisine."
+  ],
+  goa: [
+    "Relax at Baga and Calangute Beach.",
+    "Visit Fort Aguada and Old Goa churches.",
+    "Enjoy beach nightlife and shopping."
+  ],
+  rishikesh: [
+    "Attend the Ganga Aarti at Triveni Ghat.",
+    "Try river rafting and cliff jumping.",
+    "Explore Beatles Ashram and relax by the river."
+  ]
+};
+
+
+document.querySelectorAll(".submit-btn").forEach(btn => {
+  btn.addEventListener("click", function (e) {
+    e.preventDefault();
+    const resultsBox = document.getElementById("ai-results");
+    const resultsContent = document.getElementById("results-content");
+
+    //MODE 1
+    if (this.closest("#recommend-form")) {
+      const season = document.querySelector("#recommend-form select:nth-of-type(1)").value;
+      const budget = document.querySelector("#recommend-form input").value;
+      const type = document.querySelector("#recommend-form select:nth-of-type(2)").value;
+
+    
+      let recommendation;
+      if (type === "Historical") recommendation = "Jaipur, India — majestic forts and royal heritage.";
+      else if (type === "Adventure") recommendation = "Rishikesh, India — thrilling rafting & yoga vibes.";
+      else if (type === "Nature") recommendation = "Manali, Himachal — snow peaks and serene valleys.";
+      else recommendation = "Goa, India — beaches, sunsets, and coastal charm.";
+
+      resultsContent.innerHTML = `
+        <h4>Recommended Destination:</h4><br>
+        <p><strong>${recommendation}</strong></p>
+        <p><em>Based on your preference for ${type.toLowerCase()} trips during ${season.toLowerCase()} under ₹${budget}.</em></p><br>
+        <h4>Sample Itinerary:</h4>
+        <ul style="list-style-position: inside;">
+          <li>Day 1: Arrival and local exploration.</li>
+          <li>Day 2: Main attractions and experiences.</li>
+          <li>Day 3: Leisure and return journey.</li>
+        </ul>
+      `;
+    } 
+
+    // MODE 2
+    else if (this.closest("#plan-form")) {
+      const place = document.querySelector("#plan-form input:nth-of-type(1)").value.trim();
+      const days = document.querySelector("#plan-form input:nth-of-type(2)").value;
+      const budget = document.querySelector("#plan-form input:nth-of-type(3)").value;
+      const placeKey = place.toLowerCase();
+
+      
+      if (itineraries[placeKey]) {
+        resultsContent.innerHTML = `
+          <h4>Itinerary for ${place}</h4>
+          <ul>${itineraries[placeKey].map((day, i) => `<li>Day ${i+1}: ${day}</li>`).join("")}</ul>
+          <p><strong>Estimated Budget:</strong> ₹${budget}</p>
+          <p><em>Tip:</em> Use local transport to save money and explore like a local!</p>
+        `;
+      } 
+      
+      else {
+        resultsContent.innerHTML = `
+          <h4>Itinerary for ${place}</h4><br>
+          <ul>
+            ${Array.from({ length: days }, (_, i) => `<li>Day ${i+1}: Explore ${place}'s top attractions.</li>`).join("")}
+          </ul><br>
+          <p><strong>Estimated Budget:</strong> ₹${budget}</p>
+          <p><em>Tip:</em> Research local spots before your trip for the best experience!</p>
+        `;
+      }
+    }
+
+    resultsBox.style.display = "block";
+    resultsBox.scrollIntoView({ behavior: "smooth" });
+  });
+});
+
+
+  </script>
+  </body>
+  </html>

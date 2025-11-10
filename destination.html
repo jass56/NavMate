@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NavMate</title>
+  <link rel="stylesheet" href="style3.css" />
+  <link href='https://fonts.googleapis.com/css?family=Corinthia' rel='stylesheet'>
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+</head>
+<body>
+  <div class="page-container">
+  <div id="preloader">
+  <lottie-player 
+    src="Paper plane.json"
+    background="transparent"
+    speed="0.5"
+    style="width: 180px; height: 180px;"
+    loop autoplay>
+  </lottie-player>
+</div>
+
+  <header>
+    <div class="logo">
+        <img src="images/plane.png" alt="logo">
+        <span>NavMate</span></div>
+    <nav>
+  <ul class="nav-items">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="planner.html">Smart Planner</a></li>
+    <li><a href="destination.html">Destinations</a></li>
+    <li><a href="login.html">Login</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
+</header>
+
+<div id="main-content" style="display: none;">
+    <section class="destinations-section">
+  <h2 style="font-family: 'Corinthia', cursive;">- Top Destinations - </h2>
+  <p style="font-style: italic;">Explore popular places hand-picked by NavMate</p>
+
+  <div class="destinations-grid">
+    <div class="destination-card">
+      <img src="images/manali.jpg" alt="Manali">
+      <p>Manali, Himachal Pradesh, India</p>
+    </div>
+
+    <div class="destination-card">
+      <img src="images/taj.jpg" alt="Taj Mahal">
+      <p>Taj Mahal, Agra, India</p>
+    </div>
+    <div class="destination-card">
+      <img src="images/jaipur2.jpg" alt="Jaipur">
+      <p>Jaipur, Rajasthan, India</p>
+    </div>
+
+    <div class="destination-card">
+      <img src="images/bhutan2.jpg" alt="Bhutan">
+      <p>Tiger's Nest Monastery, Bhutan</p>
+    </div>
+
+    <div class="destination-card">
+      <img src="images/goa.jpg" alt="Goa">
+      <p>Goa, India</p>
+    </div>
+
+    <div class="destination-card">
+      <img src="images/havelock.jpg" alt="Andaman Islands">
+      <p>Havelock Island, Andaman & Nicobar Islands</p>
+    </div>
+
+    <div class="destination-card">
+      <img src="images/udaipur.jpg" alt="udaipur">
+      <p>Udaipur, Rajasthan, India</p>
+    </div>
+     
+    <div class="destination-card">
+      <img src="images/rishi.webp" alt="Rishikesh">
+      <p>Rishikesh, Uttrakhand, India</p>
+    </div>
+    
+    <div class="destination-card">
+      <img src="images/kerala.jpg" alt="kerala">
+      <p>Kerala, India</p>
+    </div>
+    
+    <div class="destination-card">
+      <img src="images/jk.jpg" alt="srinagar">
+      <p>Dal Lake, Jammu and Kashmir, India</p>
+    </div>
+    <div class="destination-card">
+      <img src="images/jim.jpg" alt="Jim">
+      <p>Jim Corbett National Park, Uttrakhand, India</p>
+    </div>
+    <div class="destination-card">
+      <img src="images/bridge.jpg" alt="meghalaya">
+      <p>Meghalaya, India</p>
+    </div>
+
+  </div>
+</section>
+</div>
+ <footer>
+    <p>© 2025 NavMate. All rights reserved.</p>
+  </footer>
+
+  <script>
+  window.addEventListener("load", () => {
+    setTimeout(() => {
+      document.getElementById("preloader").style.display = "none";
+      document.getElementById("main-content").style.display = "block";
+    }, 2000); 
+  });
+    </script>
+</body>
+</html>
