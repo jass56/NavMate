@@ -1,0 +1,204 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  background-color: #f2f7fd;
+  color:#26385e;
+}
+
+html, body { height: 100%; }
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+#main-content {
+  flex: 1;}
+
+header {
+  font-family: "Lucida Bright", Georgia, serif; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background: linear-gradient(90deg,#26385e, #4a6ab0, #26385e);
+  color:#ffffff;
+}
+
+
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: #ffffff; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+#preloader img {
+  width: 15%;   
+  height: auto;   
+}
+
+
+.logo {  
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color:white;
+}
+
+.logo img {
+  height: 45px;
+  width: 45px;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+.nav-items li a {
+  font-family: "Lucida Bright", Georgia, serif; 
+  text-decoration: none;
+  color: white;
+  transition: all 0.3s ease;
+  font-size:15px;
+}
+.nav-items li a:hover {
+  color:#b7cfe6; 
+}
+.planner-section {
+  font-family: "Lucida Bright", Georgia, serif;
+  text-align: center;
+  color: #26385e;
+  padding: 60px 80px;
+}
+
+.planner-modes {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin: 40px 0;
+}
+
+.mode-card {
+  width: 440px;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  padding: 25px;
+  font-family: "Lucida Bright", Georgia, serif;
+  transition: transform 0.3s ease;
+}
+
+.mode-card:hover {
+  transform: translateY(-8px);
+}
+
+.m1,.m2{
+  width:65px;
+  height: auto;
+  display: block;
+  margin: 10px auto 6px;
+}
+
+.mode-card button {
+  font-family: "Lucida Bright", Georgia, serif;
+  font-size:14px;
+  background:#26385e;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  padding: 8px 20px;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+/*FORM*/
+.planner-form {
+  display: none;
+  text-align: left;
+  width: 420px;
+  margin: 30px auto;
+  background: #fff;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+.planner-form h3 {
+  text-align: center;
+  padding-bottom:5px;
+}
+
+
+.planner-form label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.planner-form input,
+.planner-form select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.submit-btn {
+  background:#26385e;
+  font-family: "Lucida Bright", Georgia, serif;
+  font-size: 14px;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 25px;
+  cursor: pointer;
+  display: block;
+  margin: 20px auto 0;
+}
+
+.submit-btn:hover {
+  background:#2f4575;
+}
+
+.results-box {
+  display: none;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  padding: 25px;
+  margin: 30px auto;
+  max-width: 600px;
+  text-align: left;
+  font-family: "Lucida Bright", Georgia, serif;
+}
+
+.results-box h3 {
+  text-align: center;
+  color: #26385e;
+  margin-bottom: 15px;
+}
+
+
+footer {
+  text-align: center;
+  padding: 15px 0;
+  font-size: 17px;
+  background-color: #26385e;
+  color:white
+}

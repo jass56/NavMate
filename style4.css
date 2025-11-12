@@ -1,0 +1,201 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  background-color: #f2f7fd;
+  color:#26385e;
+}
+
+html, body { height: 100%; }
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+#main-content {
+  flex: 1;}
+
+header {
+  font-family: "Lucida Bright", Georgia, serif; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background: linear-gradient(90deg,#26385e, #4a6ab0, #26385e);
+  color:#ffffff;
+}
+
+
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: #ffffff; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+#preloader img {
+  width: 15%;   
+  height: auto;   
+}
+
+
+.logo {  
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color:white;
+}
+
+.logo img {
+  height: 45px;
+  width: 45px;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+.nav-items li a {
+  font-family: "Lucida Bright", Georgia, serif; 
+  text-decoration: none;
+  color: white;
+  transition: all 0.3s ease;
+  font-size:15px;
+}
+.nav-items li a:hover {
+  color:#b7cfe6; 
+}
+.login-section {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #e9f0ff 0%, #f3f8ff 100%);
+  font-family: "Lucida Bright", Georgia, serif;
+  color: #26385e;
+  padding: 30px;
+}
+
+.login-card {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+  border-radius: 16px;
+  padding: 40px 50px;
+  width: 380px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.login-card::before {
+  content: "";
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 120px;
+  height:120px;
+  background:url("images/log.png") no-repeat center center/contain;
+}
+
+.login-card::after {
+  content: "";
+  position: absolute;
+  bottom: -70px;
+  left: -70px;
+  width: 160px;
+  height: 160px;
+  background:url("images/log1.png") no-repeat center center/contain;
+}
+
+.login-card h2 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: #324b86;
+}
+
+.login-card p {
+  font-size: 0.95rem;
+  margin-bottom: 25px;
+  opacity: 0.9;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.login-form label {
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.login-form input {
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.login-form input:focus {
+  border-color: #4A6AB0;
+  box-shadow: 0 0 6px rgba(74, 106, 176, 0.2);
+}
+
+.login-btn {
+  background:#26385e;
+  font-family: "Lucida Bright", Georgia, serif; 
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  align-self: center;
+  margin-top: 5px;
+}
+
+.login-btn:hover {
+  background: #324b86;
+  box-shadow: 0 6px 15px rgba(74, 106, 176, 0.3);
+}
+
+.note {
+  font-size: 0.85rem;
+  margin-top: 15px;
+}
+
+.note a {
+  color: #5272b8;
+  text-decoration: none;
+}
+
+.note a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  text-align: center;
+  padding: 15px 0;
+  font-size: 17px;
+  background-color: #26385e;
+  color:white
+}
